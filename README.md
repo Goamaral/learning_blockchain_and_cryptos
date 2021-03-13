@@ -1,1 +1,3 @@
-# learning_blockchain_and_cryptos
+# Learning blockchain and cryptos
+## Hashlist
+Compare source data to target data, checksums must match.
