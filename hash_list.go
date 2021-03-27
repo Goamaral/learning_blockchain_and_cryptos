@@ -4,7 +4,7 @@ import (
   "fmt"
   "bufio"
   "os"
-  h "hashlist"
+  "hshlist"
 )
 
 func main() {
@@ -12,13 +12,15 @@ func main() {
 
   fmt.Print("Source data: ")
   sourcedata, _ := reader.ReadSlice('\n')
-  sourceHashlist := h.New(sourcedata)
+  sourcedata = sourcedata[:len(sourcedata)-1]
+  sourceHashlist := hshlist.New(sourcedata)
 
   fmt.Print("Target data: ")
   targetData, _ := reader.ReadSlice('\n')
-  targetHashlist := h.New(targetData)
+  targetData = targetData[:len(targetData)-1]
+  targetHashlist := hshlist.New(targetData)
 
-  if sourceHashlist.Checksum == targetHashlist.Checksum {
+  if hshlist.Match(sourceHashlist, targetHashlist) {
     fmt.Println("Data is the same")
   } else {
     fmt.Println("Data is different")
